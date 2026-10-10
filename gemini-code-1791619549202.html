@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="100% Free AI Cover Letter & Resume Generator powered by Gemini API. Create professional, ATS-friendly cover letters instantly.">
+    <title>Free AI Cover Letter & Resume Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- html2pdf for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">AI Cover Letter Generator</h1>
+            <p class="tagline">Generate professional, tailored cover letters in seconds using Google Gemini AI.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-layout">
+        <!-- Input Form Section -->
+        <section class="card form-section">
+            <h2>Candidate & Job Details</h2>
+            <form id="generator-form">
+                <div class="form-group">
+                    <label for="userName">Full Name *</label>
+                    <input type="text" id="userName" required placeholder="e.g. John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="jobTitle">Target Job Title *</label>
+                    <input type="text" id="jobTitle" required placeholder="e.g. Frontend Software Engineer">
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Company Name *</label>
+                    <input type="text" id="companyName" required placeholder="e.g. Acme Corp">
+                </div>
+
+                <div class="form-group">
+                    <label for="experienceLevel">Experience Level *</label>
+                    <select id="experienceLevel" required>
+                        <option value="Entry-Level / Junior">Entry-Level / Junior</option>
+                        <option value="Mid-Level">Mid-Level</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Lead / Executive">Lead / Executive</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="keySkills">Key Skills (Comma Separated) *</label>
+                    <input type="text" id="keySkills" required placeholder="e.g. React, JavaScript, Tailwind CSS, Git">
+                </div>
+
+                <div class="form-group">
+                    <label for="tone">Tone / Style</label>
+                    <select id="tone">
+                        <option value="Professional & Formal">Professional & Formal</option>
+                        <option value="Confident & Modern">Confident & Modern</option>
+                        <option value="Enthusiastic & Startup-friendly">Enthusiastic & Startup-friendly</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="apiKey">Gemini API Key *</label>
+                    <input type="password" id="apiKey" required placeholder="Enter your Gemini API key">
+                    <small>Your key stays securely in your browser session.</small>
+                </div>
+
+                <button type="submit" id="generate-btn" class="btn btn-primary">Generate Cover Letter</button>
+            </form>
+        </section>
+
+        <!-- Output Display Section -->
+        <section class="card output-section">
+            <div class="output-header">
+                <h2>Generated Cover Letter</h2>
+                <div class="action-buttons">
+                    <button id="copy-btn" class="btn btn-secondary" disabled>Copy Text</button>
+                    <button id="download-btn" class="btn btn-secondary" disabled>Download PDF</button>
+                </div>
+            </div>
+            <div id="loader" class="loader hidden">
+                <div class="spinner"></div>
+                <p>Crafting your cover letter with Gemini AI...</p>
+            </div>
+            <div id="output-container" class="output-box placeholder">
+                Your generated cover letter will appear here once you fill out the details and click generate.
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with Modals Links -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 AI Cover Letter Generator. 100% Free & Secure.</p>
+            <div class="footer-links">
+                <a href="#" id="open-privacy">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="#" id="open-terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="privacy-modal">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>Your privacy is important to us. This tool processes your inputs directly through the Google Gemini API using your provided key. We do not store, log, or share your personal data or generated resume contents on any external databases.</p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" data-modal="terms-modal">&times;</span>
+            <h2>Terms of Service</h2>
+            <p>By using this free web application, you agree that you are solely responsible for verifying the content generated by AI before submitting it to employers. The software is provided as-is without warranty of any kind.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
